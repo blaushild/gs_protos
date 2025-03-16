@@ -4,7 +4,7 @@
 // - protoc             v3.21.12
 // source: geoservice/geoservice.proto
 
-package geoservicev1
+package geoservice
 
 import (
 	context "context"

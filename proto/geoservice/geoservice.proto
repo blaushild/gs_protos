@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package geoservice;
 
-option go_package = "blaushild.geoservice.v1;geoservicev1";
+option go_package = ".;geoservice";
 
 service GeoLocator {
   rpc AddressSearch (AddressRequest) returns (AddressResponse);
