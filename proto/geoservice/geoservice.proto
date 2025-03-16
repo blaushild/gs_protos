@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package geoservice;
+
+option go_package = "blaushild.geoservice.v1;geoservicev1";
+
+service GeoLocator {
+  rpc AddressSearch (AddressRequest) returns (AddressResponse);
+  rpc GeoCode (GeoCodeRequest) returns (AddressResponse);
+}
+
+message AddressRequest {
+  string query = 1;
+}
+
+message AddressResponse {
+  string message = 1;
+}
+
+message GeoCodeRequest {
+  string lat = 1;
+  string lng = 2;
+}
