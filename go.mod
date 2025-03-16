@@ -1,4 +1,4 @@
-module github.com/blaushild/gs_proto
+module github.com/blaushild/gs_protos
 
 go 1.23.7
 
