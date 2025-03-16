@@ -1,0 +1,1 @@
+proto buff files and go-generated files for geoservice
