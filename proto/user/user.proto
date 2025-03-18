@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+package user;
+
+option go_package = ".;user";
+
+service User {
+  rpc GetUsers (google.protobuf.Empty) returns (UsersResponse);
+  rpc GetUserByEmail (UserEmail) returns (UserResponse);
+}
+
+message UsersResponse {
+  repeated UsersResponse users = 1;
+}
+
+message UserResponse {
+  string Name = 1;
+  string Email = 2;
+}
+
+message UserEmail {
+  string Email = 1;
+}
