@@ -12,7 +12,7 @@ service User {
 }
 
 message UsersResponse {
-  repeated UsersResponse users = 1;
+  repeated UserResponse users = 1;
 }
 
 message UserResponse {
