@@ -12,14 +12,14 @@ service User {
 }
 
 message UsersResponse {
-  repeated UserResponse users = 1;
+  string users = 1;
 }
 
 message UserResponse {
-  string Name = 1;
-  string Email = 2;
+  string name = 1;
+  string email = 2;
 }
 
 message UserEmail {
-  string Email = 1;
+  string email = 1;
 }
