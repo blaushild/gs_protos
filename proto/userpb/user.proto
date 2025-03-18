@@ -4,7 +4,7 @@ import "google/protobuf/empty.proto";
 
 package user;
 
-option go_package = ".;user";
+option go_package = ".;userpb";
 
 service User {
   rpc GetUsers (google.protobuf.Empty) returns (UsersResponse);
