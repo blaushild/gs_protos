@@ -34,7 +34,7 @@ message UserData {
 }
 
 message UserToken {
-  bytes Token = 1;
+  string Token = 1;
 }
 
 message StatusResponse {
