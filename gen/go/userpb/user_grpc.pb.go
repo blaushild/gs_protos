@@ -30,7 +30,7 @@ const (
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type UserClient interface {
-	AddUser(ctx context.Context, in *UserData, opts ...grpc.CallOption) (*UserID, error)
+	AddUser(ctx context.Context, in *UserData, opts ...grpc.CallOption) (*UserToken, error)
 	DeleteUser(ctx context.Context, in *UserID, opts ...grpc.CallOption) (*StatusResponse, error)
 	GetUsers(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*UsersResponse, error)
 	GetUserByEmail(ctx context.Context, in *UserEmail, opts ...grpc.CallOption) (*UserResponse, error)
@@ -44,9 +44,9 @@ func NewUserClient(cc grpc.ClientConnInterface) UserClient {
 	return &userClient{cc}
 }
 
-func (c *userClient) AddUser(ctx context.Context, in *UserData, opts ...grpc.CallOption) (*UserID, error) {
+func (c *userClient) AddUser(ctx context.Context, in *UserData, opts ...grpc.CallOption) (*UserToken, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(UserID)
+	out := new(UserToken)
 	err := c.cc.Invoke(ctx, User_AddUser_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
@@ -88,7 +88,7 @@ func (c *userClient) GetUserByEmail(ctx context.Context, in *UserEmail, opts ...
 // All implementations must embed UnimplementedUserServer
 // for forward compatibility.
 type UserServer interface {
-	AddUser(context.Context, *UserData) (*UserID, error)
+	AddUser(context.Context, *UserData) (*UserToken, error)
 	DeleteUser(context.Context, *UserID) (*StatusResponse, error)
 	GetUsers(context.Context, *emptypb.Empty) (*UsersResponse, error)
 	GetUserByEmail(context.Context, *UserEmail) (*UserResponse, error)
@@ -102,7 +102,7 @@ type UserServer interface {
 // pointer dereference when methods are called.
 type UnimplementedUserServer struct{}
 
-func (UnimplementedUserServer) AddUser(context.Context, *UserData) (*UserID, error) {
+func (UnimplementedUserServer) AddUser(context.Context, *UserData) (*UserToken, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method AddUser not implemented")
 }
 func (UnimplementedUserServer) DeleteUser(context.Context, *UserID) (*StatusResponse, error) {
