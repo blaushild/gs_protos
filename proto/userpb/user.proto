@@ -7,8 +7,8 @@ package user;
 option go_package = ".;userpb";
 
 service User {
-  rpc AddUser (UserData) returns (UserID);
-  rpc DeleteUser (UserID) returns (StatusResponse);
+  rpc AddUser (UserData) returns (UserToken);
+  rpc DeleteUser (UserEmail) returns (StatusResponse);
   rpc GetUsers (google.protobuf.Empty) returns (UsersResponse);
   rpc GetUserByEmail (UserEmail) returns (UserResponse);
 }
@@ -33,8 +33,8 @@ message UserData {
   string name = 3;
 }
 
-message UserID {
-  string id = 1;
+message UserToken {
+  string Token = 1;
 }
 
 message StatusResponse {
