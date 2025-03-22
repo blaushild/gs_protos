@@ -20,7 +20,12 @@ message UsersResponse {
 message UserResponse {
   string name = 1;
   string email = 2;
-  string credentials = 3;
+  Credentials credentials = 3;
+}
+
+message Credentials {
+  bytes passHash = 1;
+  string token = 2;
 }
 
 message UserEmail {
