@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package geoservice;
+package geo;
 
-option go_package = ".;geoservice";
+option go_package = ".;geo";
 
 service GeoLocator {
   rpc AddressSearch (AddressRequest) returns (AddressResponse);
