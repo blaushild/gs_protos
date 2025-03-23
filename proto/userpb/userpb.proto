@@ -2,9 +2,9 @@ syntax = "proto3";
 
 import "google/protobuf/empty.proto";
 
-package user;
+package userpb;
 
-option go_package = ".;user";
+option go_package = ".;userpb";
 
 service User {
   rpc AddUser (UserData) returns (UserEmail);

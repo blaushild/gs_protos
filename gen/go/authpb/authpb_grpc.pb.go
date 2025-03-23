@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: auth/auth.proto
+// source: authpb/authpb.proto
 
-package auth
+package authpb
 
 import (
 	context "context"
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Authenticator_Register_FullMethodName = "/auth.Authenticator/Register"
-	Authenticator_Login_FullMethodName    = "/auth.Authenticator/Login"
+	Authenticator_Register_FullMethodName = "/authpb.Authenticator/Register"
+	Authenticator_Login_FullMethodName    = "/authpb.Authenticator/Login"
 )
 
 // AuthenticatorClient is the client API for Authenticator service.
@@ -142,7 +142,7 @@ func _Authenticator_Login_Handler(srv interface{}, ctx context.Context, dec func
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Authenticator_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "auth.Authenticator",
+	ServiceName: "authpb.Authenticator",
 	HandlerType: (*AuthenticatorServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -155,5 +155,5 @@ var Authenticator_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "auth/auth.proto",
+	Metadata: "authpb/authpb.proto",
 }

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.5.1
 // - protoc             v3.21.12
-// source: geo/geo.proto
+// source: geopb/geopb.proto
 
-package geo
+package geopb
 
 import (
 	context "context"
@@ -19,8 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	GeoLocator_AddressSearch_FullMethodName = "/geo.GeoLocator/AddressSearch"
-	GeoLocator_GeoCode_FullMethodName       = "/geo.GeoLocator/GeoCode"
+	GeoLocator_AddressSearch_FullMethodName = "/geopb.GeoLocator/AddressSearch"
+	GeoLocator_GeoCode_FullMethodName       = "/geopb.GeoLocator/GeoCode"
 )
 
 // GeoLocatorClient is the client API for GeoLocator service.
@@ -142,7 +142,7 @@ func _GeoLocator_GeoCode_Handler(srv interface{}, ctx context.Context, dec func(
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var GeoLocator_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "geo.GeoLocator",
+	ServiceName: "geopb.GeoLocator",
 	HandlerType: (*GeoLocatorServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -155,5 +155,5 @@ var GeoLocator_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "geo/geo.proto",
+	Metadata: "geopb/geopb.proto",
 }
